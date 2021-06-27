@@ -50,5 +50,11 @@ dependencies {
     api 'androidx.lifecycle:lifecycle-viewmodel:2.0.0'
     api 'androidx.lifecycle:lifecycle-livedata:2.0.0'
 
+    //内存泄露检测
     api 'com.squareup.leakcanary:leakcanary-android:2.5'
+
+    //Immersionbar系统状态栏设置
+    api 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'
+    api 'com.gyf.immersionbar:immersionbar-components:3.0.0-beta05'
+
 }
