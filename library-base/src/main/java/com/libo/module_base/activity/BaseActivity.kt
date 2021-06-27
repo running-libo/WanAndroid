@@ -9,7 +9,7 @@ import com.gyf.immersionbar.ImmersionBar
 import com.libo.module_base.util.ActivityManager
 
 /**
- * create by apple
+ * create by libo
  * create on 2021/6/27
  * description BaseActivity封装
  */
