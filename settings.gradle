@@ -1,2 +1,8 @@
+include ':module-qa'
+include ':module-article'
+include ':module-home'
+include ':library-network'
+include ':library-res'
+include ':library-base'
 include ':app'
 rootProject.name = "WanAndroid"
