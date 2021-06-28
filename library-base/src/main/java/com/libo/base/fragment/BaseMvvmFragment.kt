@@ -51,7 +51,7 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
     /**
      * 获取参数Variable
      */
-    fun getBindingVariable() = BR.viewModel
+    fun getBindingVariable() = 0
 
     /**
      * 获取当前类泛型viewmodel的Class类型

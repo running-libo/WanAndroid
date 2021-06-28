@@ -1,10 +1,13 @@
 package com.libo.base.activity
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import androidx.viewbinding.ViewBinding
 import com.gyf.immersionbar.ImmersionBar
 import com.libo.base.util.ActivityManager
 
@@ -14,16 +17,20 @@ import com.libo.base.util.ActivityManager
  * description BaseActivity封装
  */
 abstract class BaseActivity : AppCompatActivity() {
+    lateinit var viewBinding: ViewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        viewBinding = initViewBinding()
         setContentView(setLayoutId())
         statusBaySetting()
         ActivityManager.addActivity(this)
     }
 
-    abstract fun setLayoutId(): Int
+    abstract fun setLayoutId(): View
+
+    abstract fun initViewBinding(): ViewBinding
 
     /**
      * 系统状态栏颜色设置

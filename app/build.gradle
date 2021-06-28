@@ -35,6 +35,9 @@ android {
     dataBinding {  //app下必须开启databinding才能生效，只开别的module的不行
         enabled = true
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {

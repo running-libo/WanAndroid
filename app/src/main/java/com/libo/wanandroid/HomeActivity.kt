@@ -1,7 +1,9 @@
 package com.libo.wanandroid
 
+import android.view.View
 import android.widget.Toast
 import com.libo.base.activity.BaseActivity
+import com.libo.wanandroid.databinding.ActivityHomeBinding
 
 /**
  * create by libo
@@ -14,7 +16,9 @@ class HomeActivity : BaseActivity() {
     /** 上次点击返回键时间  */
     private var lastTime: Long = 0
 
-    override fun setLayoutId(): Int = R.layout.activity_home
+    override fun setLayoutId(): View = viewBinding.root
+
+    override fun initViewBinding() = ActivityHomeBinding.inflate(layoutInflater)
 
     /**
      * 双击返回退出App
