@@ -23,6 +23,7 @@ abstract class BaseActivity : AppCompatActivity() {
         initViewBinding(layoutInflater)
         setContentView(setLayoutId())
         statusBaySetting()
+        initView()
         ActivityManager.addActivity(this)
     }
 

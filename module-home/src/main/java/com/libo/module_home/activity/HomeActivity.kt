@@ -1,7 +1,6 @@
 package com.libo.module_home.activity
 
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -50,11 +49,12 @@ class HomeActivity : BaseActivity() {
     }
 
     private fun initNavigationView() {
-        val menu: Menu = viewBinding.navigationView.getMenu()
-        menu.add(0, 0, 0, "首页")
-        menu.add(0, 1, 1, "我的")
-        menu.findItem(0).setIcon(R.mipmap.ic_home_pressed)
-        menu.findItem(1).setIcon(R.mipmap.ic_me_pressed)
+        with(viewBinding.navigationView.menu) {
+            add(0, 0, 0, "首页")
+            add(0, 1, 1, "我的")
+            findItem(0).setIcon(R.mipmap.ic_home_pressed)
+            findItem(1).setIcon(R.mipmap.ic_me_pressed)
+        }
 
         viewBinding.navigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {

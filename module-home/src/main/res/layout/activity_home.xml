@@ -21,8 +21,11 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigationView"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:orientation="horizontal"
+            android:background="@color/white"
+            app:itemTextColor="@drawable/selector_blue_gray_tab"
+            app:itemIconTint="@drawable/selector_blue_gray_tab"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
