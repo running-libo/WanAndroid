@@ -1,4 +1,4 @@
-package com.libo.module_base.activity
+package com.libo.base.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.gyf.immersionbar.ImmersionBar
-import com.libo.module_base.util.ActivityManager
+import com.libo.base.util.ActivityManager
 
 /**
  * create by libo

@@ -1,4 +1,4 @@
-package com.libo.module_base.viewmodel
+package com.libo.base.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

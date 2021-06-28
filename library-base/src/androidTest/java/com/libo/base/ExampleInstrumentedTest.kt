@@ -1,4 +1,4 @@
-package com.libo.module_base
+package com.libo.base
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

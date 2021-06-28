@@ -1,11 +1,11 @@
-package com.libo.module_base.activity
+package com.libo.base.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
-import com.libo.module_base.BR
-import com.libo.module_base.viewmodel.BaseViewModel
+import com.libo.base.BR
+import com.libo.base.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
 /**

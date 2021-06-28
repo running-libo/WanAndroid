@@ -1,4 +1,4 @@
-package com.libo.module_base
+package com.libo.base
 
 import org.junit.Test
 

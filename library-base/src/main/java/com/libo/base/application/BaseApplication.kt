@@ -1,4 +1,4 @@
-package com.libo.module_base.application
+package com.libo.base.application
 
 import android.app.Application
 

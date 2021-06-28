@@ -1,4 +1,4 @@
-package com.libo.module_base.util
+package com.libo.base.util
 
 import android.app.Activity
 import android.content.Context

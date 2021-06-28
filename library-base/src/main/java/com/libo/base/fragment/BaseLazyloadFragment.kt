@@ -1,4 +1,4 @@
-package com.libo.module_base.fragment
+package com.libo.base.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.libo.module_base.viewmodel.BaseViewModel" />
+            type="com.libo.base.viewmodel.BaseViewModel" />
     </data>
 
     <LinearLayout

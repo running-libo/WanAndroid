@@ -1,4 +1,4 @@
-package com.libo.module_base.fragment
+package com.libo.base.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
-import com.libo.module_base.BR
-import com.libo.module_base.viewmodel.BaseViewModel
+import com.libo.base.BR
+import com.libo.base.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
 /**

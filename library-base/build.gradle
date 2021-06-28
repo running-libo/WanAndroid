@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'   //添加了databinding，而且用到了kotlin，一定要添加注解处理插件
 }
 
 android {
@@ -46,7 +47,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation project(path: ':library-res')
+    api project(path: ':library-res')
 
     //MVVM
     api 'androidx.lifecycle:lifecycle-extensions:2.0.0'
