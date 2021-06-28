@@ -16,6 +16,13 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        javaCompileOptions {  //ARouter中注解处理器需要，需要将参数起名，为当前模块名字
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+                includeCompileClasspath true
+            }
+        }
     }
 
     buildTypes {
@@ -60,5 +67,9 @@ dependencies {
     //Immersionbar系统状态栏设置
     api 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'
     api 'com.gyf.immersionbar:immersionbar-components:3.0.0-beta05'
+
+    //ARouter
+    api 'com.alibaba:arouter-api:1.2.1'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.2'
 
 }

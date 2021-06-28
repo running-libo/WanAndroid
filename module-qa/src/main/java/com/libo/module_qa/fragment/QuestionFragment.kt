@@ -1,25 +1,24 @@
-package com.libo.module_home.fragment
+package com.libo.module_qa.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.libo.module_home.R
+import com.libo.module_qa.R
 
 /**
  * create by libo
  * create on 2021/6/28
- * description 主页fragment
+ * description 问答fragment
  */
-
-class HomeFragment : Fragment() {
+class QuestionFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_question, container, false)
     }
+
 }

@@ -51,9 +51,9 @@ class HomeActivity : BaseActivity() {
     private fun initNavigationView() {
         with(viewBinding.navigationView.menu) {
             add(0, 0, 0, "首页")
-            add(0, 1, 1, "我的")
+            add(0, 1, 1, "问答")
             findItem(0).setIcon(R.mipmap.ic_home_pressed)
-            findItem(1).setIcon(R.mipmap.ic_me_pressed)
+            findItem(1).setIcon(R.mipmap.ic_question_pressed)
         }
 
         viewBinding.navigationView.setOnNavigationItemSelectedListener {
