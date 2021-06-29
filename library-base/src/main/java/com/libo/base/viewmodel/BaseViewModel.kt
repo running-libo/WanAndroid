@@ -11,4 +11,5 @@ import com.libo.base.livedata.BaseLiveData
 open class BaseViewModel : ViewModel() {
     var baseLiveData = BaseLiveData()
 
+
 }

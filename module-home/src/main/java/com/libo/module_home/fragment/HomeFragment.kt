@@ -13,7 +13,16 @@ import com.libo.module_home.viewmodel.HomeViewModel
 class HomeFragment : BaseMvvmFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override fun initView() {
-
+        setRefreshLoadMore()
     }
 
+    private fun setRefreshLoadMore() {
+        binding.smartRefreshLayout.setOnRefreshListener {
+            viewModel.refresh()
+        }
+
+        binding.smartRefreshLayout.setOnLoadMoreListener {
+            viewModel.loadMore()
+        }
+    }
 }
