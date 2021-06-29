@@ -26,6 +26,11 @@ interface Api {
          * 首页
          */
         const val HOME_PAGE = "article/list/{page}/json"
+
+        /**
+         * 问答
+         */
+        const val QUESTION = "wenda/list/{page}/json"
     }
 
 }

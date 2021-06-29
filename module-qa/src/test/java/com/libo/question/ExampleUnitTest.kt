@@ -1,4 +1,4 @@
-package com.libo.module_qa
+package com.libo.question
 
 import org.junit.Test
 

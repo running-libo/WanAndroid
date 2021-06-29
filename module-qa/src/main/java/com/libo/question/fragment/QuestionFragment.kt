@@ -1,16 +1,17 @@
-package com.libo.module_home.fragment
+package com.libo.question.fragment
 
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.libo.base.fragment.BaseMvvmFragment
-import com.libo.module_home.databinding.FragmentHomeBinding
-import com.libo.module_home.viewmodel.HomeViewModel
+import com.libo.question.databinding.FragmentQuestionBinding
+import com.libo.question.viewmodel.QuestionViewModel
 
 /**
  * create by libo
  * create on 2021/6/28
- * description 主页fragment
+ * description 问答fragment
  */
-
-class HomeFragment : BaseMvvmFragment<FragmentHomeBinding, HomeViewModel>() {
+@Route(path = "/qa/question")
+class QuestionFragment : BaseMvvmFragment<FragmentQuestionBinding, QuestionViewModel>() {
 
     override fun initView() {
         setRefreshLoadMore()
@@ -38,4 +39,5 @@ class HomeFragment : BaseMvvmFragment<FragmentHomeBinding, HomeViewModel>() {
             binding.smartRefreshLayout.finishLoadMore()
         })
     }
+
 }

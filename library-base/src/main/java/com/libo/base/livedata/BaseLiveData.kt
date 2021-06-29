@@ -15,6 +15,9 @@ class BaseLiveData {
     /** 请求失败通知  */
     val loadFail by lazy { MutableLiveData<Int>() }
 
+    /** 开始loading */
+    val loading by lazy { MutableLiveData<Int>() }
+
     /** 刷新 */
     val refresh by lazy { MutableLiveData<Int>() }
 

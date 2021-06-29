@@ -1,4 +1,4 @@
-package com.libo.module_qa
+package com.libo.question
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
