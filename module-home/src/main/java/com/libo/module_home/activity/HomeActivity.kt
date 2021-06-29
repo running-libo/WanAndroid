@@ -54,21 +54,15 @@ class HomeActivity : BaseActivity() {
         with(viewBinding.navigationView.menu) {
             add(0, 0, 0, "首页")
             add(0, 1, 1, "问答")
+            add(0, 2, 2, "我的")
             findItem(0).setIcon(R.mipmap.ic_home_pressed)
             findItem(1).setIcon(R.mipmap.ic_question_pressed)
+            findItem(2).setIcon(R.mipmap.ic_me_pressed)
         }
 
         viewBinding.navigationView.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                0 -> {
-                    supportFragmentManager.beginTransaction().show(mFragments[0]).commitAllowingStateLoss()
-                    supportFragmentManager.beginTransaction().hide(mFragments[1]).commitAllowingStateLoss()
-                }
-                1 -> {
-                    supportFragmentManager.beginTransaction().show(mFragments[1]).commitAllowingStateLoss()
-                    supportFragmentManager.beginTransaction().hide(mFragments[0]).commitAllowingStateLoss()
-                }
-            }
+            hideAllFragments()
+            supportFragmentManager.beginTransaction().show(mFragments[it.itemId]).commitAllowingStateLoss()
             true
         }
     }
@@ -76,15 +70,26 @@ class HomeActivity : BaseActivity() {
     private fun initFragments() {
         var homeFragment = HomeFragment()
         var questionFragment = ARouter.getInstance().build("/qa/question").navigation()
+        var meFragment = ARouter.getInstance().build("/me/mePage").navigation()
         mFragments.add(homeFragment)
         mFragments.add(questionFragment as Fragment)
+        mFragments.add(meFragment as Fragment)
 
         //默认选中第一个
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.flContainer, homeFragment)
-        transaction.add(R.id.flContainer, questionFragment)
-        transaction.hide(questionFragment)
-        transaction.commit()
+        with(supportFragmentManager.beginTransaction()) {
+            add(R.id.flContainer, homeFragment)
+            add(R.id.flContainer, questionFragment)
+            add(R.id.flContainer, meFragment)
+            hide(questionFragment)
+            hide(meFragment)
+            commit()
+        }
+    }
+
+    private fun hideAllFragments() {
+        mFragments.forEachIndexed { index, fragment ->
+            supportFragmentManager.beginTransaction().hide(fragment).commitAllowingStateLoss()
+        }
     }
 
     /**

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
+import com.libo.base.BR
 import com.libo.base.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
@@ -50,7 +51,7 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
     /**
      * 获取参数Variable
      */
-    private fun getBindingVariable() = 0
+    private fun getBindingVariable() = BR.viewModel
 
     /**
      * 获取当前类泛型viewmodel的Class类型

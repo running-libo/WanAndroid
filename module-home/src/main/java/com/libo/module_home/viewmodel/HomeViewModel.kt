@@ -1,6 +1,5 @@
 package com.libo.module_home.viewmodel
 
-import android.util.Log
 import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.viewModelScope
 import com.libo.base.viewmodel.BaseViewModel
