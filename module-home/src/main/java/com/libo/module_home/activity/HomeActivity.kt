@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.alibaba.android.arouter.launcher.ARouter
 import com.libo.base.activity.BaseActivity
 import com.libo.module_home.R
 import com.libo.module_home.databinding.ActivityHomeBinding
@@ -36,18 +37,6 @@ class HomeActivity : BaseActivity() {
         initNavigationView()
     }
 
-    /**
-     * 双击返回退出App
-     */
-    override fun onBackPressed() {
-        if (System.currentTimeMillis() - lastTime > EXIT_TIME) {
-            Toast.makeText(applicationContext, R.string.exit_app, Toast.LENGTH_SHORT).show()
-            lastTime = System.currentTimeMillis()
-        } else {
-            super.onBackPressed()
-        }
-    }
-
     private fun initNavigationView() {
         with(viewBinding.navigationView.menu) {
             add(0, 0, 0, "首页")
@@ -63,8 +52,8 @@ class HomeActivity : BaseActivity() {
                     supportFragmentManager.beginTransaction().hide(mFragments[1]).commitAllowingStateLoss()
                 }
                 1 -> {
-                    supportFragmentManager.beginTransaction().show(mFragments[0]).commitAllowingStateLoss()
-                    supportFragmentManager.beginTransaction().hide(mFragments[1]).commitAllowingStateLoss()
+                    supportFragmentManager.beginTransaction().show(mFragments[1]).commitAllowingStateLoss()
+                    supportFragmentManager.beginTransaction().hide(mFragments[0]).commitAllowingStateLoss()
                 }
             }
             true
@@ -73,16 +62,27 @@ class HomeActivity : BaseActivity() {
 
     private fun initFragments() {
         var homeFragment = HomeFragment()
-        var homeFragment2 = HomeFragment()
+        var questionFragment = ARouter.getInstance().build("/qa/question").navigation()
         mFragments.add(homeFragment)
-        mFragments.add(homeFragment2)
+        mFragments.add(questionFragment as Fragment)
 
         //默认选中第一个
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.flContainer, homeFragment)
-        transaction.add(R.id.flContainer, homeFragment2)
-        transaction.hide(homeFragment2)
+        transaction.add(R.id.flContainer, questionFragment)
+        transaction.hide(questionFragment)
         transaction.commit()
     }
 
+    /**
+     * 双击返回退出App
+     */
+    override fun onBackPressed() {
+        if (System.currentTimeMillis() - lastTime > EXIT_TIME) {
+            Toast.makeText(applicationContext, R.string.exit_app, Toast.LENGTH_SHORT).show()
+            lastTime = System.currentTimeMillis()
+        } else {
+            super.onBackPressed()
+        }
+    }
 }

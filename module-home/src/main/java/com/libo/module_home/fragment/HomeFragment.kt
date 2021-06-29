@@ -1,11 +1,8 @@
 package com.libo.module_home.fragment
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.libo.module_home.R
+import com.libo.base.fragment.BaseMvvmFragment
+import com.libo.module_home.databinding.FragmentHomeBinding
+import com.libo.module_home.viewmodel.HomeViewModel
 
 /**
  * create by libo
@@ -13,13 +10,10 @@ import com.libo.module_home.R
  * description 主页fragment
  */
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseMvvmFragment<FragmentHomeBinding, HomeViewModel>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    override fun initView() {
+
     }
+
 }
