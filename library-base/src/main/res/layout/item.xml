@@ -5,6 +5,10 @@
         <variable
             name="viewModel"
             type="com.libo.base.viewmodel.BaseViewModel" />
+
+        <variable
+            name="item"
+            type="String" />
     </data>
 
     <LinearLayout

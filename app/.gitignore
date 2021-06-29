@@ -1,4 +1,6 @@
 # Built application files
+
+# 忽略文件只需要在app模块下配置了即可
 *.apk
 *.ap_
 
