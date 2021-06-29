@@ -1,4 +1,4 @@
-package com.libo.library_network.config
+package com.libo.base.config
 
 import android.os.Environment
 

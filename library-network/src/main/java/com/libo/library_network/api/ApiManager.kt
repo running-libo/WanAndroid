@@ -1,6 +1,8 @@
 package com.libo.library_network.api
 
-import com.libo.library_network.config.DirConfig
+import com.libo.base.config.AppConfig
+import com.libo.base.config.DirConfig
+import com.libo.library_network.interceptor.LogInterceptor
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -24,6 +26,7 @@ object ApiManager {
             .writeTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)  //写入缓存超时10s
             .retryOnConnectionFailure(true)  //失败重连
 //            setCacheFile(builder)
+            addLogIntercepter(builder)
             builder.build()
     }
 
@@ -45,5 +48,15 @@ object ApiManager {
         val cacheSize = 10 * 1024 * 1024
         val cache = Cache(cacheFile, cacheSize.toLong())
         builder.cache(cache)
+    }
+
+    /**
+     * 调试模式下加入日志拦截器
+     * @param builder
+     */
+    private fun addLogIntercepter(builder: OkHttpClient.Builder) {
+        if (AppConfig.isDebug) {
+            builder.addInterceptor(LogInterceptor())
+        }
     }
 }

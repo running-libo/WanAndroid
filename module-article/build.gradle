@@ -52,5 +52,5 @@ dependencies {
 
     kapt 'com.alibaba:arouter-compiler:1.1.2'
 
-    implementation project(path: ':library-base')
+    implementation project(path: ':library-network')
 }
