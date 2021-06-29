@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
-import com.libo.base.BR
 import com.libo.base.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
@@ -51,17 +50,17 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
     /**
      * 获取参数Variable
      */
-    fun getBindingVariable() = 0
+    private fun getBindingVariable() = 0
 
     /**
      * 获取当前类泛型viewmodel的Class类型
      * @return
      */
-    fun genericTypeViewModel(): Class<VM> {
+    private fun genericTypeViewModel(): Class<VM> {
         return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<VM>
     }
 
-    fun genericTypeBinding(): Class<V> {
+    private fun genericTypeBinding(): Class<V> {
         return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<V>
     }
 

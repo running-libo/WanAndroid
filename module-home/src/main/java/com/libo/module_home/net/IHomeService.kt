@@ -3,6 +3,7 @@ package com.libo.module_home.net
 import com.libo.library_network.api.Api
 import com.libo.library_network.api.ApiManager
 import com.libo.library_network.response.BaseResponse
+import com.libo.module_home.bean.ArticleListData
 import retrofit2.http.GET
 
 /**
@@ -24,5 +25,5 @@ interface IHomeService {
      * 首页
      */
     @GET(Api.HOME_PAGE)
-    suspend fun getHomePageData(): BaseResponse<Any>
+    suspend fun getHomePageData(): BaseResponse<ArticleListData>
 }

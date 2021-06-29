@@ -78,4 +78,12 @@ dependencies {
     //Rxjava
     api 'io.reactivex:rxjava:1.1.0'
 
+    //Itembinding
+    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:4.0.0'
+    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:4.0.0'
+    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-viewpager2:4.0.0'
+
+    //Glide
+    api 'com.github.bumptech.glide:glide:4.8.0'
+
 }
