@@ -4,6 +4,7 @@ import com.libo.library_network.api.Api
 import com.libo.library_network.api.ApiManager
 import com.libo.library_network.response.BaseResponse
 import com.libo.module_home.bean.ArticleListData
+import com.libo.module_home.bean.DataX
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -21,6 +22,12 @@ interface IHomeService {
             return instance
         }
     }
+
+    /**
+     * 置顶
+     */
+    @GET(Api.TOP_DATA)
+    suspend fun getTopData(): BaseResponse<List<DataX>>
 
     /**
      * 首页

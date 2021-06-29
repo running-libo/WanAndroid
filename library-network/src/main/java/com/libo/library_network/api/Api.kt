@@ -23,6 +23,11 @@ interface Api {
         }
 
         /**
+         * 置顶数据
+         */
+        const val TOP_DATA = "article/top/json"
+
+        /**
          * 首页
          */
         const val HOME_PAGE = "article/list/{page}/json"
