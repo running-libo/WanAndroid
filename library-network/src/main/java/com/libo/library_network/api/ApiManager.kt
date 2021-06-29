@@ -23,7 +23,7 @@ object ApiManager {
             .readTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)   //读取缓存超时10s
             .writeTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)  //写入缓存超时10s
             .retryOnConnectionFailure(true)  //失败重连
-            setCacheFile(builder)
+//            setCacheFile(builder)
             builder.build()
     }
 

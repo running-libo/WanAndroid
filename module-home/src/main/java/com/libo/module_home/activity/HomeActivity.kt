@@ -1,5 +1,6 @@
 package com.libo.module_home.activity
 
+import android.Manifest
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
@@ -9,6 +10,7 @@ import com.libo.base.activity.BaseActivity
 import com.libo.module_home.R
 import com.libo.module_home.databinding.ActivityHomeBinding
 import com.libo.module_home.fragment.HomeFragment
+import com.tbruyelle.rxpermissions.RxPermissions
 
 /**
  * create by libo
@@ -27,14 +29,25 @@ class HomeActivity : BaseActivity() {
 
     override fun setLayoutId(): View = viewBinding.root
 
+    var rxPermission: RxPermissions? = null
+
 
     override fun initViewBinding(layoutInflater: LayoutInflater) {
         viewBinding = ActivityHomeBinding.inflate(layoutInflater)
     }
 
     override fun initView() {
-        initFragments()
-        initNavigationView()
+
+        rxPermission = RxPermissions(this)
+        rxPermission!!.request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
+            .subscribe {
+                if (it) {
+                    initFragments()
+                    initNavigationView()
+                } else {
+                    Toast.makeText(applicationContext, "未授权权限，部分功能不能使用", Toast.LENGTH_SHORT).show();
+                }
+            }
     }
 
     private fun initNavigationView() {

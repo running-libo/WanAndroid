@@ -17,6 +17,10 @@ class BaseApplication : Application() {
         initArouter()
     }
 
+    companion object {
+        var instance: Application? = null
+    }
+
     private fun initArouter() {
         if (BuildConfig.DEBUG) {
             ARouter.openLog()
