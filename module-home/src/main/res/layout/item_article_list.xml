@@ -7,6 +7,10 @@
             name="item"
             type="com.libo.module_home.bean.DataX" />
 
+        <variable
+            name="viewModel"
+            type="com.libo.module_home.viewmodel.HomeViewModel" />
+
         <import type="android.text.TextUtils"/>
 
         <import type="android.view.View"/>
@@ -15,7 +19,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:padding="12dp"
+        android:onClick="@{v->viewModel.onItemClick(item.link)}">
 
         <TextView
             android:id="@+id/tvAuth"

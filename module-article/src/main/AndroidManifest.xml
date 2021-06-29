@@ -2,4 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.libo.module_article">
 
+    <application>
+        <activity android:name=".activity.ArticleActivity"></activity>
+    </application>
+
 </manifest>

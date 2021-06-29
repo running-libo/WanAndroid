@@ -1,6 +1,7 @@
 package com.libo.module_home.viewmodel
 
 import androidx.lifecycle.viewModelScope
+import com.alibaba.android.arouter.launcher.ARouter
 import com.libo.base.viewmodel.BasePageViewModel
 import com.libo.library_network.response.dataConvert
 import com.libo.module_home.R
@@ -44,5 +45,11 @@ class HomeViewModel: BasePageViewModel<DataX>() {
 
             }
         }
+    }
+
+    fun onItemClick(url: String) {
+        ARouter.getInstance().build("/article/webpage")
+            .withString("url", url)
+            .navigation()
     }
 }

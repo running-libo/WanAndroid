@@ -27,7 +27,7 @@ class HomeActivity : BaseActivity() {
 
     private lateinit var viewBinding: ActivityHomeBinding
 
-    override fun setLayoutId(): View = viewBinding.root
+    override fun setLayoutId() = viewBinding.root
 
     var rxPermission: RxPermissions? = null
 
