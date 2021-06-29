@@ -25,8 +25,8 @@ class HomeViewModel: BasePageViewModel<DataX>() {
 
     override fun requestData(page: Int) {
         viewModelScope.launch {
-            var homePageData = IHomeService.invoke().getHomePageData().dataConvert()
-            items.addAll(homePageData.datas)
+            var homePageData = IHomeService.invoke().getHomePageData(page).dataConvert()
+            handleItemData(page, homePageData.datas)
         }
     }
 }

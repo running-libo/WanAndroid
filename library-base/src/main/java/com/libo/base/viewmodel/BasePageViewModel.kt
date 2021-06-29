@@ -26,7 +26,7 @@ open abstract class BasePageViewModel<T> : BaseViewModel() {
 
     open fun requestData(page: Int) {}
 
-    fun getStartPageNum(): Int = 0
+    private fun getStartPageNum(): Int = 0
 
     fun refresh() {
         curPage.value = getStartPageNum()

@@ -1,5 +1,6 @@
 package com.libo.module_home.fragment
 
+import androidx.lifecycle.Observer
 import com.libo.base.fragment.BaseMvvmFragment
 import com.libo.module_home.databinding.FragmentHomeBinding
 import com.libo.module_home.viewmodel.HomeViewModel
@@ -24,5 +25,18 @@ class HomeFragment : BaseMvvmFragment<FragmentHomeBinding, HomeViewModel>() {
         binding.smartRefreshLayout.setOnLoadMoreListener {
             viewModel.loadMore()
         }
+
+        viewModel.baseLiveData.refresh.observe(this, {
+            binding.smartRefreshLayout.finishRefresh()
+        })
+
+        viewModel.baseLiveData.loadMore.observe(this, {
+            binding.smartRefreshLayout.finishLoadMore()
+        })
+
+        viewModel.baseLiveData.loadFail.observe(this, {
+            binding.smartRefreshLayout.finishRefresh()
+            binding.smartRefreshLayout.finishLoadMore()
+        })
     }
 }

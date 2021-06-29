@@ -25,7 +25,7 @@ interface Api {
         /**
          * 首页
          */
-        const val HOME_PAGE = "article/list/0/json"
+        const val HOME_PAGE = "article/list/{page}/json"
     }
 
 }
