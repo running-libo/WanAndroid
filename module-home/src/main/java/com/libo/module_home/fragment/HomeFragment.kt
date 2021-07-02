@@ -48,19 +48,18 @@ class HomeFragment : BaseMvvmFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun setBannerAdapter() {
-        //设置滑动方向，可为横向和纵向
-        binding.viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL)
-        binding.viewPager.setAutoTurningTime(3000)
-        binding.viewPager.startTurning()
+        with(binding.viewPager) {
+            setOrientation(ViewPager2.ORIENTATION_HORIZONTAL)
+            setAutoTurningTime(3000)
+            startTurning()
 
-        //设置左右页面露出来的宽度及item与item之间的宽度
-        binding.viewPager.setPageMargin(activity!!.dip2pxInt(20f), activity!!.dip2pxInt(10f))
-        //内置ScaleInTransformer，设置切换缩放动画
-        binding.viewPager.addPageTransformer(ScaleInTransformer())
-        var datas = ArrayList<BannerData>()
+            setPageMargin(activity!!.dip2pxInt(20f), activity!!.dip2pxInt(10f)) //设置左右页面露出来的宽度及item与item之间的宽度
+            addPageTransformer(ScaleInTransformer()) //内置ScaleInTransformer，设置切换缩放动画
 
-        //设置adapter
-        binding.viewPager.adapter = BannerAdapter(activity!!, datas)
+            var datas = ArrayList<BannerData>()
+
+            adapter = BannerAdapter(activity!!, datas)
+        }
     }
 
     private fun onEvent() {
