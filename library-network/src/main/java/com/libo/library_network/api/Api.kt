@@ -42,6 +42,11 @@ interface Api {
          */
         const val QUESTION = "wenda/list/{page}/json"
 
+        /**
+         * 体系
+         */
+        const val SYSTEM = "tree/json"
+
     }
 
 }
