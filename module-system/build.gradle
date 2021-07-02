@@ -1,7 +1,7 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
-    id 'kotlin-kapt'   //添加了databinding，而且用到了kotlin，一定要添加注解处理插件
+    id 'kotlin-kapt'
 }
 
 android {
@@ -9,13 +9,20 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.libo.wanandroid"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+                includeCompileClasspath true
+            }
+        }
     }
 
     buildTypes {
@@ -31,8 +38,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    dataBinding {  //app下必须开启databinding才能生效，只开别的module的不行
+    dataBinding {
         enabled = true
     }
     viewBinding {
@@ -46,14 +52,12 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation project(path: ':module-home')
-    implementation project(path: ':module-article')
-    implementation project(path: ':module-qa')
-    implementation project(path: ':module-me')
-    implementation project(path: ':module-system')
+    implementation project(path: ':library-network')
+
+    kapt 'com.alibaba:arouter-compiler:1.1.2'
 }

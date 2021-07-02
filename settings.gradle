@@ -1,3 +1,4 @@
+include ':module-system'
 include ':module-me'
 include ':module-qa'
 include ':module-article'

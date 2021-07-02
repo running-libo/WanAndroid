@@ -2,7 +2,6 @@ package com.libo.module_home.activity
 
 import android.Manifest
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.launcher.ARouter
@@ -54,10 +53,12 @@ class HomeActivity : BaseActivity() {
         with(viewBinding.navigationView.menu) {
             add(0, 0, 0, "首页")
             add(0, 1, 1, "问答")
-            add(0, 2, 2, "我的")
+            add(0, 2, 2, "体系")
+            add(0, 3, 3, "我的")
             findItem(0).setIcon(R.mipmap.ic_home_pressed)
             findItem(1).setIcon(R.mipmap.ic_question_pressed)
-            findItem(2).setIcon(R.mipmap.ic_me_pressed)
+            findItem(2).setIcon(R.mipmap.ic_system_pressed)
+            findItem(3).setIcon(R.mipmap.ic_me_pressed)
         }
 
         viewBinding.navigationView.setOnNavigationItemSelectedListener {
@@ -70,17 +71,21 @@ class HomeActivity : BaseActivity() {
     private fun initFragments() {
         var homeFragment = HomeFragment()
         var questionFragment = ARouter.getInstance().build("/qa/question").navigation()
+        var systemFragment = ARouter.getInstance().build("/system/systemPage").navigation()
         var meFragment = ARouter.getInstance().build("/me/mePage").navigation()
         mFragments.add(homeFragment)
         mFragments.add(questionFragment as Fragment)
+        mFragments.add(systemFragment as Fragment)
         mFragments.add(meFragment as Fragment)
 
         //默认选中第一个
         with(supportFragmentManager.beginTransaction()) {
             add(R.id.flContainer, homeFragment)
             add(R.id.flContainer, questionFragment)
+            add(R.id.flContainer, systemFragment)
             add(R.id.flContainer, meFragment)
             hide(questionFragment)
+            hide(systemFragment)
             hide(meFragment)
             commit()
         }
