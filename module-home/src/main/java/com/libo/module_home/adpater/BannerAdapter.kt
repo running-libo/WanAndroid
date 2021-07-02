@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.libo.module_home.R
 import com.libo.module_home.bean.BannerData
@@ -36,6 +37,12 @@ class BannerAdapter(val context: Context, val datas: ArrayList<BannerData>): Rec
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Glide.with(context).load(datas[position].imagePath).into(holder.ivCover!!)
+
+        holder.ivCover!!.setOnClickListener {
+            ARouter.getInstance().build("/article/webpage")
+                .withString("url", datas[position].url)
+                .navigation()
+        }
     }
 
     override fun getItemCount() = datas.size
