@@ -4,6 +4,7 @@ import com.libo.library_network.api.Api
 import com.libo.library_network.api.ApiManager
 import com.libo.library_network.response.BaseResponse
 import com.libo.module_home.bean.ArticleListData
+import com.libo.module_home.bean.BannerData
 import com.libo.module_home.bean.DataX
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -34,4 +35,10 @@ interface IHomeService {
      */
     @GET(Api.HOME_PAGE)
     suspend fun getHomePageData(@Path("page") page: Int): BaseResponse<ArticleListData>
+
+    /**
+     * banner
+     */
+    @GET(Api.BANNER)
+    suspend fun getBanner(): BaseResponse<List<BannerData>>
 }

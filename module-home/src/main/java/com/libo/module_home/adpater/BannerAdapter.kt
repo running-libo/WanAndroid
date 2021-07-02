@@ -6,14 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.libo.module_home.R
+import com.libo.module_home.bean.BannerData
 
 /**
  * create by apple
  * create on 2021/7/2
  * description
  */
-class ViewPager2Adapter(val context: Context, val datas: List<Int>): RecyclerView.Adapter<ViewPager2Adapter.ViewHolder>() {
+class BannerAdapter(val context: Context, val datas: ArrayList<BannerData>): RecyclerView.Adapter<BannerAdapter.ViewHolder>() {
     var layoutInflater: LayoutInflater? = null
 
     init {
@@ -33,9 +35,14 @@ class ViewPager2Adapter(val context: Context, val datas: List<Int>): RecyclerVie
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.ivCover?.background = context.resources.getDrawable(datas[position])
+        Glide.with(context).load(datas[position].imagePath).into(holder.ivCover!!)
     }
 
     override fun getItemCount() = datas.size
+
+    fun addDatas(datas: List<BannerData>) {
+        this.datas.addAll(datas)
+        notifyDataSetChanged()
+    }
 
 }

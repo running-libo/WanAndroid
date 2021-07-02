@@ -28,10 +28,10 @@
                     android:layout_height="wrap_content"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                    <androidx.viewpager2.widget.ViewPager2
+                    <com.to.aboomy.pager2banner.Banner
                         android:id="@+id/viewPager"
                         android:layout_width="match_parent"
-                        android:layout_height="160dp" />
+                        android:layout_height="190dp" />
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
 
             </com.google.android.material.appbar.AppBarLayout>

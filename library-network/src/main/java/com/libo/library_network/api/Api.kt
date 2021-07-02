@@ -33,9 +33,15 @@ interface Api {
         const val HOME_PAGE = "article/list/{page}/json"
 
         /**
+         * banner
+         */
+        const val BANNER = "banner/json"
+
+        /**
          * 问答
          */
         const val QUESTION = "wenda/list/{page}/json"
+
     }
 
 }
