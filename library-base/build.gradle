@@ -93,4 +93,7 @@ dependencies {
     //X5 webview
     api 'com.tencent.tbs.tbssdk:sdk:43939'
 
+    //ViewPager2
+    api "androidx.viewpager2:viewpager2:1.0.0"
+
 }
