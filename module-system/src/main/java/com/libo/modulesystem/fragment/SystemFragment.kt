@@ -9,7 +9,8 @@ import com.libo.modulesystem.viewmodel.SystemViewModel
 class SystemFragment : BaseMvvmFragment<FragmentSystemBinding, SystemViewModel>() {
 
     override fun initView() {
-
+        binding.smartRefreshLayout.autoRefreshAnimationOnly()
+        binding.smartRefreshLayout.autoLoadMoreAnimationOnly()
     }
 
 }

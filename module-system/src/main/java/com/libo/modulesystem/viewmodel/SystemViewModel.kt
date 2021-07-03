@@ -26,9 +26,8 @@ class SystemViewModel: BasePageViewModel<Any>() {
         baseLiveData.loading.value = 1
         viewModelScope.launch {
             try {
-                ISystemService.invoke().getSystemData().dataConvert()
-//                var questionData = IQaService.invoke().getQuestionData(page).dataConvert()
-//                handleItemData(page, questionData.datas)
+                var systemData = ISystemService.invoke().getSystemData().dataConvert()
+                handleItemData(page, systemData)
             } catch (e: Exception) {
                 error(e)
                 baseLiveData.loadFail.value = 1

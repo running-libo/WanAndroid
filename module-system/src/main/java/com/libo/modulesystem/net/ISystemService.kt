@@ -3,6 +3,7 @@ package com.libo.question.net
 import com.libo.library_network.api.Api
 import com.libo.library_network.api.ApiManager
 import com.libo.library_network.response.BaseResponse
+import com.libo.modulesystem.SystemData
 import retrofit2.http.GET
 
 /**
@@ -21,5 +22,5 @@ interface ISystemService {
     }
 
     @GET(Api.SYSTEM)
-    suspend fun getSystemData(): BaseResponse<Any>
+    suspend fun getSystemData(): BaseResponse<List<SystemData>>
 }
