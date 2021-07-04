@@ -2,7 +2,6 @@ package com.libo.base.application
 
 import android.app.Application
 import android.content.Context
-import android.graphics.Color.blue
 import com.alibaba.android.arouter.launcher.ARouter
 import com.libo.base.BuildConfig
 import com.libo.base.R
