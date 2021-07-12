@@ -3,15 +3,13 @@ package com.libo.module_home.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.alibaba.android.arouter.launcher.ARouter
-import com.libo.base.viewmodel.BasePageViewModel
+import com.libo.basemvvm.viewmodel.BasePageViewModel
 import com.libo.library_network.response.dataConvert
 import com.libo.module_home.R
 import com.libo.module_home.bean.BannerData
 import com.libo.module_home.bean.DataX
 import com.libo.module_home.net.IHomeService
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 
 /**
  * create by libo

@@ -1,8 +1,8 @@
-package com.libo.base.viewmodel
+package com.libo.basemvvm.viewmodel
 
 import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.MutableLiveData
-import com.libo.base.BR
+import com.libo.basemvvm.BR
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**

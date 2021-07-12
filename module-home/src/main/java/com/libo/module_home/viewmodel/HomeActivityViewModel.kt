@@ -1,6 +1,6 @@
 package com.libo.module_home.viewmodel
 
-import com.libo.base.viewmodel.BaseViewModel
+import com.libo.basemvvm.viewmodel.BaseViewModel
 
 /**
  * create by apple

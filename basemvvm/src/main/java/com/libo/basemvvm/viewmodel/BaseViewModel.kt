@@ -1,7 +1,7 @@
-package com.libo.base.viewmodel
+package com.libo.basemvvm.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.libo.base.livedata.BaseLiveData
+import com.libo.basemvvm.livedata.BaseLiveData
 
 /**
  * create by libo

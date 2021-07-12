@@ -2,7 +2,7 @@ package com.libo.question.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.alibaba.android.arouter.launcher.ARouter
-import com.libo.base.viewmodel.BasePageViewModel
+import com.libo.basemvvm.viewmodel.BasePageViewModel
 import com.libo.library_network.response.dataConvert
 import com.libo.question.R
 import com.libo.question.bean.DataBean

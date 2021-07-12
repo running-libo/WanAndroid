@@ -1,13 +1,11 @@
-package com.libo.base.fragment
+package com.libo.basemvvm.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
-import com.libo.base.BR
-import com.libo.base.viewmodel.BaseViewModel
+import com.libo.basemvvm.BR
+import com.libo.basemvvm.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -15,7 +13,7 @@ import java.lang.reflect.ParameterizedType
  * create on 2020/8/4
  * description
  */
-abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseLazyloadFragment() {
+abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseActivity() {
     lateinit var viewModel: VM
     lateinit var binding: V
 
@@ -25,12 +23,6 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
         initViewModel()
     }
 
-    private fun initViewModel() {
-        viewModel = createViewModel()
-        binding.setVariable(getBindingVariable(), viewModel)
-        binding.lifecycleOwner = this
-    }
-
     /**
      * 创建dataBingding，并自动设置布局
      */
@@ -38,12 +30,20 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
         var dbClass = genericTypeBinding()
         var method = dbClass.getMethod("inflate", LayoutInflater::class.java)
         binding = method.invoke(null, layoutInflater) as V
+        setContentView(setLayoutId())
     }
 
-    override fun getContentView(inflater: LayoutInflater, container: ViewGroup?): View {
-        return binding.root
+    private fun initViewModel() {
+        viewModel = createViewModel()
+        binding!!.setVariable(getBindingVariable(), viewModel)
+        binding.lifecycleOwner = this
     }
 
+    override fun setLayoutId() = binding.root
+
+    /**
+     * 创建viewModel
+     */
     protected fun createViewModel(): VM {
         return ViewModelProviders.of(this).get(genericTypeViewModel())
     }
@@ -57,11 +57,11 @@ abstract class BaseMvvmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseL
      * 获取当前类泛型viewmodel的Class类型
      * @return
      */
-    private fun genericTypeViewModel(): Class<VM> {
+    fun genericTypeViewModel(): Class<VM> {
         return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<VM>
     }
 
-    private fun genericTypeBinding(): Class<V> {
+    fun genericTypeBinding(): Class<V> {
         return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<V>
     }
 

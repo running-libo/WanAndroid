@@ -1,7 +1,7 @@
 package com.libo.module_home.fragment
 
 import androidx.viewpager2.widget.ViewPager2
-import com.libo.base.fragment.BaseMvvmFragment
+import com.libo.basemvvm.fragment.BaseMvvmFragment
 import com.libo.base.util.dip2pxInt
 import com.libo.module_home.adpater.BannerAdapter
 import com.libo.module_home.bean.BannerData

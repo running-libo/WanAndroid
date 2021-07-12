@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.launcher.ARouter
-import com.libo.base.activity.BaseMvvmActivity
+import com.libo.basemvvm.activity.BaseMvvmActivity
 import com.libo.module_home.R
 import com.libo.module_home.databinding.ActivityHomeBinding
 import com.libo.module_home.fragment.HomeFragment

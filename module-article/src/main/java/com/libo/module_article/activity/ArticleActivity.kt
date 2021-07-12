@@ -1,6 +1,5 @@
 package com.libo.module_article.activity
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -8,7 +7,7 @@ import android.view.ViewGroup
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.libo.base.activity.BaseActivity
+import com.libo.basemvvm.activity.BaseActivity
 import com.libo.module_article.databinding.ActivityArticleBinding
 import com.tencent.smtt.sdk.WebChromeClient
 import com.tencent.smtt.sdk.WebSettings

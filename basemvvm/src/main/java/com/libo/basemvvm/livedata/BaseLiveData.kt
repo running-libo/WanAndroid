@@ -1,4 +1,4 @@
-package com.libo.base.livedata
+package com.libo.basemvvm.livedata
 
 import androidx.lifecycle.MutableLiveData
 

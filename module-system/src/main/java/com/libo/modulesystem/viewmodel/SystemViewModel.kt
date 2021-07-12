@@ -1,7 +1,7 @@
 package com.libo.modulesystem.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import com.libo.base.viewmodel.BasePageViewModel
+import com.libo.basemvvm.viewmodel.BasePageViewModel
 import com.libo.library_network.response.dataConvert
 import com.libo.modulesystem.R
 import com.libo.modulesystem.net.ISystemService

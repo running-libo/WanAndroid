@@ -1,7 +1,7 @@
 package com.libo.question.fragment
 
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.libo.base.fragment.BaseMvvmFragment
+import com.libo.basemvvm.fragment.BaseMvvmFragment
 import com.libo.question.databinding.FragmentQuestionBinding
 import com.libo.question.viewmodel.QuestionViewModel
 
