@@ -9,7 +9,9 @@ import com.libo.module_home.R
 import com.libo.module_home.bean.BannerData
 import com.libo.module_home.bean.DataX
 import com.libo.module_home.net.IHomeService
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
 
 /**
  * create by libo

@@ -2,6 +2,7 @@ package com.libo.base.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.libo.base.BR
@@ -30,7 +31,7 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseA
         var dbClass = genericTypeBinding()
         var method = dbClass.getMethod("inflate", LayoutInflater::class.java)
         binding = method.invoke(null, layoutInflater) as V
-        setContentView(binding.root)
+        setContentView(setLayoutId())
     }
 
     private fun initViewModel() {
@@ -38,6 +39,8 @@ abstract class BaseMvvmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseA
         binding!!.setVariable(getBindingVariable(), viewModel)
         binding.lifecycleOwner = this
     }
+
+    override fun setLayoutId() = binding.root
 
     /**
      * 创建viewModel

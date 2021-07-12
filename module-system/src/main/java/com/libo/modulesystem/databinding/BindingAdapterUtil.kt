@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.libo.base.widget.FlowLayoutView
+import com.libo.flowlayout.FlowLayoutView
 import com.libo.modulesystem.Children
 import com.libo.modulesystem.R
 

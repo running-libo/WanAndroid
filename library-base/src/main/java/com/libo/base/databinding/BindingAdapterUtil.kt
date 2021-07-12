@@ -1,15 +1,11 @@
 package com.libo.base.databinding
 
 import android.text.TextUtils
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
-import com.libo.base.R
-import com.libo.base.widget.FlowLayoutView
 
 /**
  * create by libo

@@ -96,4 +96,7 @@ dependencies {
     //Banner
     api 'io.github.zguop:pager2Banner:1.0.5'
 
+    //tagview
+    api 'io.github.running-libo:flowlayout:1.0.0'
+
 }

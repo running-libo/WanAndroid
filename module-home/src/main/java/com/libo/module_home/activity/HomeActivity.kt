@@ -5,10 +5,11 @@ import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.launcher.ARouter
-import com.libo.base.activity.BaseActivity
+import com.libo.base.activity.BaseMvvmActivity
 import com.libo.module_home.R
 import com.libo.module_home.databinding.ActivityHomeBinding
 import com.libo.module_home.fragment.HomeFragment
+import com.libo.module_home.viewmodel.HomeActivityViewModel
 import com.tbruyelle.rxpermissions.RxPermissions
 
 /**
@@ -16,7 +17,7 @@ import com.tbruyelle.rxpermissions.RxPermissions
  * create on 2021/6/27
  * description 主页面
  */
-class HomeActivity : BaseActivity() {
+class HomeActivity : BaseMvvmActivity<ActivityHomeBinding, HomeActivityViewModel>() {
     /** 连续按返回键退出时间  */
     private val EXIT_TIME = 2000
     /** 上次点击返回键时间  */

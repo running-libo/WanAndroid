@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <com.libo.base.widget.FlowLayoutView
+        <com.libo.flowlayout.FlowLayoutView
             android:id="@+id/flowLayoutView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
