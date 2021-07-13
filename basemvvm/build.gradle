@@ -4,6 +4,8 @@ plugins {
     id 'kotlin-kapt'
 }
 
+apply from: '../maven_publish.gradle'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -31,8 +33,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    dataBinding {
-        enabled = true
+    buildFeatures{
+        dataBinding = true
     }
 }
 
