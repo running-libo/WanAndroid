@@ -1,4 +1,4 @@
-package com.libo.library_network.response
+package com.libo.base.config
 
 import android.text.TextUtils
 

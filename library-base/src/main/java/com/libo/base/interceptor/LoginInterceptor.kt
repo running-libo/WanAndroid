@@ -1,4 +1,4 @@
-package com.libo.library_network.interceptor
+package com.libo.base.interceptor
 
 import android.content.Context
 import com.alibaba.android.arouter.facade.Postcard
@@ -6,7 +6,7 @@ import com.alibaba.android.arouter.facade.annotation.Interceptor
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback
 import com.alibaba.android.arouter.facade.template.IInterceptor
 import com.alibaba.android.arouter.launcher.ARouter
-import com.libo.library_network.response.UserInfoCache
+import com.libo.base.config.UserInfoCache
 
 /**
  * create by apple

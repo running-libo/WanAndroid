@@ -1,6 +1,6 @@
 package com.libo.modulesystem.net
 
-import com.libo.library_network.api.Api
+import com.libo.base.api.Api
 import com.libo.library_network.api.ApiManager
 import com.libo.library_network.response.BaseResponse
 import com.libo.modulesystem.SystemData

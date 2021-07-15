@@ -1,7 +1,6 @@
 package com.libo.library_network.api
 
-import com.libo.base.config.AppConfig
-import com.libo.base.config.DirConfig
+import com.libo.library_network.cacheconfig.DirConfig
 import com.libo.library_network.interceptor.LogInterceptor
 import com.libo.library_network.interceptor.NetCacheInterceptor
 import okhttp3.Cache
@@ -27,14 +26,14 @@ object ApiManager {
             .writeTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)  //写入缓存超时10s
             .retryOnConnectionFailure(true)  //失败重连
             .addInterceptor(NetCacheInterceptor())
-//            setCacheFile(builder)
-            addLogIntercepter(builder)
+            .addInterceptor(LogInterceptor())
+            setCacheFile(builder)
             builder.build()
     }
 
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl(Api.getBaseUrl())
+            .baseUrl("https://www.wanandroid.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(mOkhttpClient)
             .build()
@@ -50,15 +49,5 @@ object ApiManager {
         val cacheSize = 10 * 1024 * 1024
         val cache = Cache(cacheFile, cacheSize.toLong())
         builder.cache(cache)
-    }
-
-    /**
-     * 调试模式下加入日志拦截器
-     * @param builder
-     */
-    private fun addLogIntercepter(builder: OkHttpClient.Builder) {
-        if (AppConfig.isDebug) {
-            builder.addInterceptor(LogInterceptor())
-        }
     }
 }

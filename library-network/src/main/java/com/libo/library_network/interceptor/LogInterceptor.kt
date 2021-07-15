@@ -1,6 +1,6 @@
 package com.libo.library_network.interceptor
 
-import com.libo.base.util.LogUtils
+import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -15,10 +15,10 @@ class LogInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
         val response = chain.proceed(request)
-        LogUtils.d(String.format("发送请求  %s", request.url()))
+        Log.i("loger", String.format("发送请求  %s", request.url()))
 
         val responseBody = response.peekBody(byteCount.toLong())
-        LogUtils.d(String.format("接收响应  %s", responseBody.string()))
+        Log.i("loger", String.format("接收响应  %s", responseBody.string()))
 
         return response
     }
