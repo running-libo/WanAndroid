@@ -3,6 +3,7 @@ package com.libo.library_network.api
 import com.libo.base.config.AppConfig
 import com.libo.base.config.DirConfig
 import com.libo.library_network.interceptor.LogInterceptor
+import com.libo.library_network.interceptor.NetCacheInterceptor
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -25,6 +26,7 @@ object ApiManager {
             .readTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)   //读取缓存超时10s
             .writeTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)  //写入缓存超时10s
             .retryOnConnectionFailure(true)  //失败重连
+            .addInterceptor(NetCacheInterceptor())
 //            setCacheFile(builder)
             addLogIntercepter(builder)
             builder.build()
