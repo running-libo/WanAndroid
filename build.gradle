@@ -1,14 +1,19 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = "1.4.31"
+
     repositories {
+        //构建项目时会拉取gradle资源，而goole和jcenter在国内的网络环境并不好，容易出现包拉取失败的问题。推荐使用国内阿里的镜像。
+        //repositories里仓库具有从上到下先后获取顺序
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
         google()
-        jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.0"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        //在这里配置插件
+        classpath "com.android.tools.build:gradle:4.1.0"  //gradle插件版本
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"  //kotlin插件版本
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -16,14 +21,17 @@ buildscript {
 }
 
 allprojects {
+    //配置所有module的公共依赖
     repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
         google()
-        jcenter()
         mavenCentral()
         maven { url 'https://jitpack.io' }  //RxPermission库所需maven仓库
     }
 }
 
+//执行clean Project执行的任务
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

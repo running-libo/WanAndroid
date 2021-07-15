@@ -1,6 +1,7 @@
+
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
+    id 'com.android.application' //表示编译为app，library表示编译为Module
+    id 'kotlin-android'  //kotlin插件
     id 'kotlin-kapt'   //添加了databinding，而且用到了kotlin，一定要添加注解处理插件
 }
 

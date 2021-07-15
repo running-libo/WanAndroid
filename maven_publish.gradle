@@ -1,6 +1,10 @@
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
+ext["signing.keyId"] = "55ECE4FE"  //GPG指纹后8位
+ext["signing.password"] = "18380438200"  //GPG密码
+ext["signing.secretKeyRingFile"] = "/myfile/maven_upload_pub_sec/libo_0x55ECE4FE_SECRET.gpg" //GPG私钥
+
 afterEvaluate {
     publishing {
         publications {
@@ -8,11 +12,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'io.github.running-libo'  //sonatype平台创建的groupId
                 artifactId = project.name
-                version = '1.0.0'  //库版本名
-
-                project.ext["signing.keyId"] = "55ECE4FE"  //GPG指纹后8位
-                project.ext["signing.password"] = "18380438200"  //GPG密码
-                project.ext["signing.secretKeyRingFile"] = "/myfile/maven_upload_pub_sec/libo_0x55ECE4FE_SECRET.gpg" //GPG私钥
+                version = '1.0.1'  //库版本名
 
                 pom {
                     name = "basemvvm"
@@ -54,7 +54,7 @@ afterEvaluate {
             }
         }
     }
-    project.signing {
-        sign project.publishing.publications
+    signing {
+        sign publishing.publications
     }
 }
