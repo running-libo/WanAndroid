@@ -14,7 +14,7 @@ import retrofit2.http.GET
 interface ISystemService {
 
     companion object {
-        val instance = ApiManager.retrofit.create(ISystemService::class.java)
+        val instance = ApiManager.create(ISystemService::class.java, Api.getBaseUrl())
 
         fun invoke(): ISystemService {
             return instance

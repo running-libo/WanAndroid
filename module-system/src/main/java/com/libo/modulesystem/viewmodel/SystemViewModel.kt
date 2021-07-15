@@ -29,7 +29,6 @@ class SystemViewModel: BasePageViewModel<Any>() {
                 var systemData = ISystemService.invoke().getSystemData().dataConvert()
                 handleItemData(page, systemData)
             } catch (e: Exception) {
-                error(e)
                 baseLiveData.loadFail.value = 1
             } finally {
 

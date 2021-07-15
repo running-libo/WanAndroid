@@ -43,7 +43,6 @@ class HomeViewModel: BasePageViewModel<DataX>() {
                     items.addAll(0, topData)
                 }
             } catch (e: Exception) {
-                error(e)
                 baseLiveData.loadFail.value = 1
             } finally {
 
@@ -56,7 +55,6 @@ class HomeViewModel: BasePageViewModel<DataX>() {
             try {
                 bannerData.value = IHomeService.invoke().getBanner().dataConvert()
             } catch (e: Exception) {
-                error(e)
                 baseLiveData.loadFail.value = 1
             } finally {
 

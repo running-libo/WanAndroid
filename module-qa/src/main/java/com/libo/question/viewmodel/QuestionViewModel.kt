@@ -31,7 +31,6 @@ class QuestionViewModel: BasePageViewModel<DataBean>() {
                 var questionData = IQaService.invoke().getQuestionData(page).dataConvert()
                 handleItemData(page, questionData.datas)
             } catch (e: Exception) {
-                error(e)
                 baseLiveData.loadFail.value = 1
             } finally {
 

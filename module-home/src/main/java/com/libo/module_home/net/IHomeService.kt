@@ -17,7 +17,7 @@ import retrofit2.http.Path
 interface IHomeService {
 
     companion object {
-        val instance = ApiManager.retrofit.create(IHomeService::class.java)
+        val instance = ApiManager.create(IHomeService::class.java, Api.getBaseUrl())
 
         fun invoke(): IHomeService {
             return instance

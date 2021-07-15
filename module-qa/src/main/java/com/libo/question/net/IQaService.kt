@@ -15,7 +15,7 @@ import retrofit2.http.Path
 interface IQaService {
 
     companion object {
-        val instance = ApiManager.retrofit.create(IQaService::class.java)
+        val instance = ApiManager.create(IQaService::class.java, Api.getBaseUrl())
 
         fun invoke(): IQaService {
             return instance

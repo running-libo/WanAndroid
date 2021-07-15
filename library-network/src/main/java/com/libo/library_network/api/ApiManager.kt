@@ -31,12 +31,14 @@ object ApiManager {
             builder.build()
     }
 
-    val retrofit: Retrofit by lazy {
+    val retrofitBuilder by lazy {
         Retrofit.Builder()
-            .baseUrl("https://www.wanandroid.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(mOkhttpClient)
-            .build()
+    }
+
+    fun <T> create(cls: Class<T>, baseUrl: String): T {
+        return retrofitBuilder.baseUrl(baseUrl).build().create(cls)
     }
 
     /**

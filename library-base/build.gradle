@@ -56,7 +56,6 @@ dependencies {
 
     api project(path: ':library-res')
     api project(path: ':library-network')
-
     api project(path: ':basemvvm')
 
     //Leakcanary
