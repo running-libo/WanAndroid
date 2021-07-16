@@ -1,5 +1,7 @@
 package com.libo.base.api
 
+import com.libo.base.BuildConfig
+
 /**
  * create by libo
  * create on 2021/6/28
@@ -18,8 +20,22 @@ interface Api {
         /** 正式服务器地址  */
         private const val SERVER_ADDRESS_RELEASE = "https://www.wanandroid.com/"
 
+        /**
+         * 获取当前环境的域名
+         */
         fun getBaseUrl(): String {
-            return SERVER_ADDRESS_DEV
+            return when (BuildConfig.NET_TYPE) {
+                BuildConfig.IS_DEV -> {
+                    SERVER_ADDRESS_DEV
+                }
+                BuildConfig.IS_BETA -> {
+                    SERVER_ADDRESS_BETA
+                }
+                BuildConfig.IS_RELEASE -> {
+                    SERVER_ADDRESS_RELEASE
+                }
+                else -> SERVER_ADDRESS_DEV
+            }
         }
 
         /**

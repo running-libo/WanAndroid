@@ -16,6 +16,8 @@ android {
         versionCode 1
         versionName "1.0"
 
+        flavorDimensions "versionCode"  //还需要配置多渠道打包code
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -23,8 +25,34 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            //通过Gradle生成apk名称，带有渠道名称，时间戳，版本号，版本名称等信息
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "${getCurrentTime()}_${defaultConfig.versionName}_release.apk"
+                }
+            }
         }
     }
+    //一键化多渠道打包配置
+    productFlavors {
+        yingyongbao {
+        }
+        qh360 {
+        }
+        xiaomi {
+        }
+    }
+    productFlavors.all { flavor->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        buildConfigField 'String', 'PLAT_FORM', "\"${name}\""
+    }
+
+    //签名配置
+    singingConfigs {
+        
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -39,6 +67,10 @@ android {
     viewBinding {
         enabled = true
     }
+}
+
+static def getCurrentTime() {
+    return new Date().format("yyyy-MM-dd")
 }
 
 dependencies {

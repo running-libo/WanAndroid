@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.launcher.ARouter
 import com.libo.basemvvm.activity.BaseMvvmActivity
+import com.libo.module_home.BuildConfig
 import com.libo.module_home.R
 import com.libo.module_home.databinding.ActivityHomeBinding
 import com.libo.module_home.fragment.HomeFragment
@@ -37,7 +38,6 @@ class HomeActivity : BaseMvvmActivity<ActivityHomeBinding, HomeActivityViewModel
     }
 
     override fun initView() {
-
         rxPermission = RxPermissions(this)
         rxPermission!!.request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
             .subscribe {

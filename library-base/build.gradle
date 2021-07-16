@@ -24,24 +24,52 @@ android {
                 includeCompileClasspath true
             }
         }
+
+        //往改模块的BuildConfig文件注入属性和值
+        //需要三个参数  1.属性类型(String/int)   2.属性名  3.属性值
+        //String类型，需要加入转义的双引号才表示字符串，不然生成的变量没有双引号
+        buildConfigField 'String', 'IS_DEV', "\"dev\""
+        buildConfigField 'String', 'IS_BETA', "\"beta\""
+        buildConfigField 'String', 'IS_RELEASE', "\"release\""
+        buildConfigField 'String', 'NET_TYPE', "\""+getServer()+"\""  //net_type读取properties中NET_TYPE值
     }
 
+    //buildTypes: 构建类型
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     dataBinding {
         enabled = true
     }
+}
+
+//使用文件流读取properties数据
+def getServer() {
+    def netType
+    Properties properties = new Properties()  //使用Properties读取流文件
+    def file = file("../gradle.properties")  // file() 创建一个Java中的File对象
+    if (file.canRead()) {
+        //可以读取到文件
+        properties.load(file.newInputStream())
+        if (properties != null) {
+            //文件读取成功
+            netType = properties.getProperty('NET_TYPE')  //getProperty读取属性值
+        }
+    }
+    return netType
 }
 
 dependencies {
@@ -56,7 +84,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     api project(path: ':library-res')
-    api project(path: ':basemvvm')
 
     //Leakcanary
     api 'com.squareup.leakcanary:leakcanary-android:2.5'
@@ -94,7 +121,11 @@ dependencies {
     //project-utils
     api 'io.github.running-libo:project-lib:1.0.0'
 
+    //网络请求库
     api 'io.github.running-libo:library-network:1.0.0'
+
+    //basemvvm框架
+    api 'io.github.running-libo:basemvvm:1.0.0'
 
     //协程
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.1"
