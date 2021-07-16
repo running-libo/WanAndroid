@@ -12,7 +12,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'io.github.running-libo'  //sonatype平台创建的groupId
                 artifactId = project.name
-                version = '1.0.1'  //库版本名
+                version = '1.0.0'  //库版本名
 
                 pom {
                     name = "basemvvm"

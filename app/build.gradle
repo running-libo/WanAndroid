@@ -21,10 +21,22 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    //签名配置
+    signingConfigs {
+        release {
+            keyAlias '123456'
+            keyPassword '123456'
+            storeFile file('wananzhuo.jks')
+            storePassword '123456'
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.release
 
             //通过Gradle生成apk名称，带有渠道名称，时间戳，版本号，版本名称等信息
             android.applicationVariants.all { variant ->
@@ -34,6 +46,7 @@ android {
             }
         }
     }
+
     //一键化多渠道打包配置
     productFlavors {
         yingyongbao {
@@ -46,11 +59,6 @@ android {
     productFlavors.all { flavor->
         flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
         buildConfigField 'String', 'PLAT_FORM', "\"${name}\""
-    }
-
-    //签名配置
-    singingConfigs {
-        
     }
 
     compileOptions {
