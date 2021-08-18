@@ -32,6 +32,8 @@ android {
         buildConfigField 'String', 'IS_BETA', "\"beta\""
         buildConfigField 'String', 'IS_RELEASE', "\"release\""
         buildConfigField 'String', 'NET_TYPE', "\""+getServer()+"\""  //net_type读取properties中NET_TYPE值
+
+//        configAppName()
     }
 
     //buildTypes: 构建类型

@@ -19,6 +19,8 @@ android {
         flavorDimensions "versionCode"  //还需要配置多渠道打包code
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+//        configAppName()
     }
 
     //签名配置
@@ -41,7 +43,7 @@ android {
             //通过Gradle生成apk名称，带有渠道名称，时间戳，版本号，版本名称等信息
             android.applicationVariants.all { variant ->
                 variant.outputs.all {
-                    outputFileName = "${getCurrentTime()}_${defaultConfig.versionName}_release.apk"
+                    outputFileName = "${new Date().format("yyyy-MM-dd")}_${defaultConfig.versionName}_release.apk"
                 }
             }
         }
@@ -49,12 +51,12 @@ android {
 
     //一键化多渠道打包配置
     productFlavors {
-        yingyongbao {
-        }
-        qh360 {
-        }
-        xiaomi {
-        }
+        yingyongbao {}
+        qh360 {}
+        xiaomi {}
+        vivo {}
+        oppo {}
+        huawei {}
     }
     productFlavors.all { flavor->
         flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
@@ -77,8 +79,20 @@ android {
     }
 }
 
-static def getCurrentTime() {
-    return new Date().format("yyyy-MM-dd")
+def configAppName() {
+    def netType = "dev"
+    switch (netType) {
+        case "dev":
+            manifestPlaceholders.put('APP_NAME', "玩安卓-开发")
+            break
+        case "beta":
+            manifestPlaceholders.put('APP_NAME', "玩安卓-测试")
+            break
+        case "release":
+            manifestPlaceholders.put('APP_NAME', "玩安卓")
+            break
+
+    }
 }
 
 dependencies {
@@ -97,4 +111,5 @@ dependencies {
     implementation project(path: ':module-qa')
     implementation project(path: ':module-me')
     implementation project(path: ':module-system')
+    implementation project(path: ':library-base')
 }
