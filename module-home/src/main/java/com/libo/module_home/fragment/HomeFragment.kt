@@ -54,7 +54,7 @@ class HomeFragment : BaseMvvmFragment<FragmentHomeBinding, HomeViewModel>() {
             startTurning()
 
             setPageMargin(activity!!.dip2pxInt(20f), activity!!.dip2pxInt(10f)) //设置左右页面露出来的宽度及item与item之间的宽度
-            addPageTransformer(ScaleInTransformer()) //内置ScaleInTransformer，设置切换缩放动画
+//            addPageTransformer(ScaleInTransformer()) //内置ScaleInTransformer，设置切换缩放动画
 
             var datas = ArrayList<BannerData>()
 
