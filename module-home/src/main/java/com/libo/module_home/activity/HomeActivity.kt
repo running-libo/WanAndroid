@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.launcher.ARouter
+import com.libo.base.util.GrayManager
 import com.libo.basemvvm.activity.BaseMvvmActivity
-import com.libo.module_home.BuildConfig
 import com.libo.module_home.R
 import com.libo.module_home.databinding.ActivityHomeBinding
 import com.libo.module_home.fragment.HomeFragment
@@ -42,6 +42,11 @@ class HomeActivity : BaseMvvmActivity<ActivityHomeBinding, HomeActivityViewModel
         rxPermission!!.request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
             .subscribe {
                 if (it) {
+                    var isGrayMode = getSharedPreferences("mode", MODE_PRIVATE).getBoolean("mode", false)
+                    if (isGrayMode) {
+                        //当前为
+                        GrayManager.setColorThemeMode(window.decorView)
+                    }
                     initFragments()
                     initNavigationView()
                 } else {
@@ -106,6 +111,7 @@ class HomeActivity : BaseMvvmActivity<ActivityHomeBinding, HomeActivityViewModel
             Toast.makeText(applicationContext, R.string.exit_app, Toast.LENGTH_SHORT).show()
             lastTime = System.currentTimeMillis()
         } else {
+            System.exit(0)
             super.onBackPressed()
         }
     }

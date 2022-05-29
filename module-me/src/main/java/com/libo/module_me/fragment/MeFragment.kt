@@ -1,20 +1,19 @@
 package com.libo.module_me.fragment
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.content.Context.MODE_PRIVATE
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.libo.module_me.R
+import com.libo.basemvvm.fragment.BaseMvvmFragment
+import com.libo.module_me.databinding.FragmentMeBinding
 
 @Route(path = "/me/mePage")
-class MeFragment : Fragment() {
+class MeFragment : BaseMvvmFragment<FragmentMeBinding, MeViewModel>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_me, container, false)
+    override fun initView() {
+        var isGrayMode = context?.getSharedPreferences("mode", MODE_PRIVATE)?.getBoolean("mode", false)
+        binding.viewSwitch.isChecked = isGrayMode!!
+
+        binding.viewSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            context?.getSharedPreferences("mode", MODE_PRIVATE)?.edit()?.putBoolean("mode", isChecked)?.commit()
+        }
     }
 }
