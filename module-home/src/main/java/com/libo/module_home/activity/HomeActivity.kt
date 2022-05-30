@@ -57,10 +57,10 @@ class HomeActivity : BaseMvvmActivity<ActivityHomeBinding, HomeActivityViewModel
 
     private fun initNavigationView() {
         with(viewBinding.navigationView.menu) {
-            add(0, 0, 0, "首页")
-            add(0, 1, 1, "问答")
-            add(0, 2, 2, "体系")
-            add(0, 3, 3, "我的")
+            add(0, 0, 0, getString(R.string.home_page))
+            add(0, 1, 1, getString(R.string.q_a))
+            add(0, 2, 2, getString(R.string.system))
+            add(0, 3, 3, getString(R.string.mine))
             findItem(0).setIcon(R.mipmap.ic_home_pressed)
             findItem(1).setIcon(R.mipmap.ic_question_pressed)
             findItem(2).setIcon(R.mipmap.ic_system_pressed)

@@ -472,7 +472,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="我的分享"
+                    android:text="切换语言"
                     android:textSize="15sp"
                     android:textColor="@color/black"
                     app:layout_constraintTop_toTopOf="@id/view_line4"
@@ -480,8 +480,9 @@
                     app:layout_constraintLeft_toLeftOf="@id/guideline_left" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_cur_language"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
                     app:layout_constraintTop_toTopOf="@id/view_line4"
                     app:layout_constraintBottom_toBottomOf="@id/view_line5"
                     app:layout_constraintRight_toRightOf="@id/guideline_right"

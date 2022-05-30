@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="exit_app">再按一次退出</string>
+    <string name="exit_app" translatable="false">再按一次退出</string>
+
+    <!-- 中文 -->
+    <string name="home_page">首页</string>
+    <string name="q_a">问答</string>
+    <string name="system">体系</string>
+    <string name="mine">我的</string>
+    
 </resources>

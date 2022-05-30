@@ -7,7 +7,6 @@ import com.libo.module_home.adpater.BannerAdapter
 import com.libo.module_home.bean.BannerData
 import com.libo.module_home.databinding.FragmentHomeBinding
 import com.libo.module_home.viewmodel.HomeViewModel
-import com.to.aboomy.pager2banner.ScaleInTransformer
 
 /**
  * create by libo

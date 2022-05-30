@@ -6,6 +6,7 @@ import android.util.Log
 import com.alibaba.android.arouter.launcher.ARouter
 import com.libo.base.BuildConfig
 import com.libo.base.R
+import com.libo.base.util.LanguageHelper
 import com.libo.base.util.LogUtils.TAG
 import com.scwang.smartrefresh.header.MaterialHeader
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -27,6 +28,8 @@ class BaseApplication : Application() {
 
         initArouter()
         initSmartRefreshLayout()
+
+        LanguageHelper.getAttachBaseContext(this)
     }
 
     companion object {

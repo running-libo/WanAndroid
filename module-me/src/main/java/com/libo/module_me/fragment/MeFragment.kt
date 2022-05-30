@@ -2,6 +2,7 @@ package com.libo.module_me.fragment
 
 import android.content.Context.MODE_PRIVATE
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.libo.base.util.LanguageHelper
 import com.libo.basemvvm.fragment.BaseMvvmFragment
 import com.libo.module_me.databinding.FragmentMeBinding
 
@@ -15,5 +16,7 @@ class MeFragment : BaseMvvmFragment<FragmentMeBinding, MeViewModel>() {
         binding.viewSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             context?.getSharedPreferences("mode", MODE_PRIVATE)?.edit()?.putBoolean("mode", isChecked)?.commit()
         }
+
+        binding.tvCurLanguage.text = LanguageHelper.getSystemLanguage()
     }
 }

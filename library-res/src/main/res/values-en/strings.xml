@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="home_page">home page</string>
+    <string name="q_a">Q&amp;A</string>
+    <string name="system">system</string>
+    <string name="mine">mine</string>
+</resources>

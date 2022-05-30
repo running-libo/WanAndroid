@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="home_page">الصفحة الرئيسية</string>
+    <string name="q_a">سؤال وجواب</string>
+    <string name="system">نظم</string>
+    <string name="mine">ركاز</string>
+</resources>
